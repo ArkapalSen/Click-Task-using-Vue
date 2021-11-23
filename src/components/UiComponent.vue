@@ -1,7 +1,7 @@
 <template>
   <div>
-    <input type="text" placeholder="Enter Text" v-model="text" />
-    <p ref="textStyle" v-if="classShow">{{ text }}</p>
+    <input type="text" placeholder="Enter Text" v-model.trim="text" />
+    <p ref="textStyle" v-show="classShow">{{ text }}</p>
   </div>
   <div>
     <SubmitBtn :getData="submitClassShow" />
@@ -43,11 +43,11 @@ export default {
   methods: {
     submitClassShow(par) {
       if (this.text.length !== 0) {
-        this.classShow = par;
+        this.classShow = par
         if (this.classShow) {
           this.$refs.textStyle.style.fontSize = "20px";
           this.size = this.$refs.textStyle.style.fontSize.slice(0, 2);
-          console.log(this.$refs.textStyle.style);
+          
         }
       }
     },
